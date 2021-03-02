@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Automatic Emails Registration</title>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
+</head>
+<body>
+
+
+	<div class="jumbotron" style="height: 100vh">
+	<!--div style="position: absolute;left: 0%;top: 0%;width: 100%;background-color: #201B42;height: 7vh;">
+		<p class="font-weight-light" style="font-size: 120%;color: #fff;position: absolute;left: 4%;top: 18%;">Automatic Emails Registration</p>
+	</div-->
+
+
+	<!--button type="button" class="btn btn-outline-light" style="position: absolute;left: 84%;top: 8%;">Log in</button>
+		<button type="button" class="btn btn-outline-light" style="position: absolute;left: 90%;top: 8%;">Register</button-->
+     
+	<!--div style="width: 0.05%;position: absolute;left: 49.975%;top: 10%;height: 55vh;background-color: #201B42;">
+		
+	</div >
+	<div style="width: 0.05%;position: absolute;left: 49.975%;top: 82%;height: 15vh;background-color: #201B42;">
+		
+	</div -->
+      
+    
+	<div class="jumbotron" style="background-color: #201B42;width: 80%;position: absolute;left: 10%;top: 10vh;height: 78vh;">
+		<h2 style="color: #fff;position: relative;text-align: center;top: -8%">Email Management</h2>
+
+		<form action="/add_an_email/" method="POST" class="input-group" style="top: 30%; width: 80%;left: 10%;position: absolute;">
+			{% csrf_token %}
+  			<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" name="email">
+  			<div class="input-group-append">
+    			<input type="submit" value="Add an E-mail" name="submail" type="button" class="btn btn-outline-primary"/>
+  			</div>	
+		</form>
+
+
+		<form action="/remove_an_email/" method="POST" class="input-group" style="top: 45%; width: 80%;left: 10%;position: absolute;">
+			{% csrf_token %}
+  			<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" name="removeemail">
+  			<div class="input-group-append">
+    			<input type="submit" value="Remove E-mail" name="submail1" type="button" class="btn btn-outline-warning"/>
+  			</div>	
+		</form>
+		
+
+		<div class="form-check" style="top: 58%; left: 10%;position: absolute;">
+
+		  <input class="form-check-input" type="checkbox" value="" id="termsChkbx1" onchange="isChecked(this, 'sub1')">
+		  <label class="form-check-label" for="termsChkbx1">
+		    <p style="color:#fff;">Check before deleting all E-mails</p>
+		  </label>
+		</div>
+		<form action="/delete_all/" method="POST" class="input-group" style="top: 65%; left: 10%;position: absolute;">
+			{% csrf_token %}
+			<input type="submit" value="Delete all E-mails" disabled="disabled" name="delete" type="button" class="btn btn-outline-danger" id="sub1" />
+		</form>
+		
+
+		<div class="form-check" style="top: 73%; left: 40%;position: absolute;">
+		  <input class="form-check-input" type="checkbox" value="" id="termsChkbx" onchange="isChecked(this, 'sub2')">
+		  <label class="form-check-label" for="termsChkbx">
+		    <p style="color:#fff;">Check before running the process</p>
+		  </label>
+		</div>		
+		<form action="/run/" method="POST" class="input-group" style="width: 20%;position: absolute;left: 40%;top: 80%;height: 10%;">
+			{% csrf_token %}
+			<input type="submit" value="Start Registration Process" disabled="disabled" name="param" type="button" class="btn btn-success" id="sub2" />
+		</form>
+
+	</div>
+	</div>
+
+
+	<!--div style="width: 49.975%;position: absolute;left: 50.025%;top: 7vh;height: 46.5vh;">
+		<h2 style="color: #201B42;position: relative;text-align: center;top: 8%">URLs</h2>
+		
+		<div class="input-group" style="top: 30%; width: 80%;left: 10%;position: absolute;">
+			<form method="POST" action="/hey" style="width: 80%;">
+  			<input type="text" name="urlInput"  class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+  			</form>
+  			<div class="input-group-append">
+    			<button type="button" class="btn btn-outline-primary">Add URL</button>
+  			</div>	
+  			
+		</div>
+		<div class="input-group" style="top: 50%; width: 80%;left: 10%;position: absolute;">
+  			<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+  			<div class="input-group-append">
+    			<button type="button" class="btn btn-outline-warning">Remove URL</button>
+  			</div>	
+		</div>
+		<button type="button" class="btn btn-outline-danger" style="top: 70%; left: 10%;position: absolute;">Delete all URLs</button>
+		<button type="button" class="btn btn-outline-success" style="top: 70%; left: 33%;position: absolute;">Save changes</button>
+	</div-->
+	<script type="text/javascript">
+		function isChecked(checkbox, sub1) {
+    	document.getElementById(sub1).disabled = !checkbox.checked;
+    }
+	</script>
+
+
+
+	<!--script type="text/javascript">
+		// Get a reference to the database service
+		var database = firebase.database();
+
+		function writeUserData(userId, name, email, imageUrl) {
+		  firebase.database().ref('users/' + userId).set({
+		    username: name,
+		    email: email,
+		    profile_picture : imageUrl
+		  });
+		}
+	</script-->
+
+
+</body>
+</html>
